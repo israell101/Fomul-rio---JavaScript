@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+		<title>novo</title>
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" type="text/css" href="css/reset.css">
+		<link rel="stylesheet" type="text/css" href="css/index.css">
+        <style>
+            h1 {
+                  color: blueviolet;
+                  font-family:'Courier New', Courier, monospace;
+            }
+
+            p {
+                  color: blueviolet;
+                  font-family:'Courier New', Courier, monospace;
+                  font-size: 110%;
+                  font-weight: bold;
+            }
+
+            .buton {
+                background-color: darkolivegreen;
+                border: 0ch;
+                font-size: 15px;
+                text-align: center;
+                color: aliceblue;
+            }
+             </style>
+    </head>
+
+	<body>
+        <header>
+			<div class="container">
+				<h1 class="titulo">Aparecida Nutrição</h1>
+			</div>
+		</header>
+		<main>
+			<section class="container">
+				<h2>Meus pacientes</h2>
+				<table>
+					<thead>
+						<tr>
+							<th>Salario</th>
+							<th>Mes</th>
+							<th>Total</th>
+						</tr>
+					</thead>
+					<tbody id="tabela-salario">
+        <tr class="salarioclass" id="primeiro-salario">
+            <td class="info-salario">500</td>
+            <td class="info-mes">2</td>
+            <td class="info-total">0</td>
+        </tr>
+
+    </tbody>
+</table>
+</section>
+</main>
+
+<section class="container">
+                <h2 id="titulo-form">Adicionar novo paciente</h2>
+           <form id="form-adiciona">
+   <div class="grupo">
+                    <label for="nome">Salario:</label>
+                    <input id="nome" name="salario" type="text" placeholder="Digite seu Salario" class="campo">
+   </div>
+   <!----------------------------->
+   <div class="grupo">
+                    <label for="nome">Mes:</label>
+                    <input id="mes" name="mes" type="text" placeholder="Digite o Mes" class="campo">
+   </div>
+
+               <button id="adicionar-pessoa" class="botao bto-principal">Adicionar</button>
+           </form>
+
+<script>
+
+       var primeriosalario = document.querySelector("#primeiro-salario");
+
+       var salario1 = primeriosalario.querySelector(".info-salario");
+       var salariovalor = salario1.textContent;
+
+       var mes1 = primeriosalario.querySelector(".info-mes");
+       var mesvalor = mes1.textContent;
+
+       var totalTd = primeriosalario.querySelector(".info-total");
+       var tt = totalTd.textContent;
+
+       var total = (salariovalor * mesvalor);
+
+       totalTd.textContent = total;
+
+       var botaoVariavel = document.querySelector("#adicionar-pessoa");
+
+       botaoVariavel.addEventListener("click",function(event){
+       event.preventDefault(); //evita carregar pagina.
+            
+          var form = document.querySelector("#form-adiciona");
+
+          var salario = form.salario.value;
+          var mes = form.mes.value;
+
+          var contaTr = document.createElement("tr");
+
+          var salarioTd = document.createElement("td");
+          var mesTd = document.createElement("td");
+
+          salarioTd.textContent = salario;
+          mesTd.textContent = mes;
+
+          contaTr.appendChild(salarioTd);
+          contaTr.appendChild(mesTd);
+
+          var tabela = document.querySelector("form-adiciona");
+
+          contaTr.appendChild(tabela);
+          /*
+        <tbody id="tabela-salario">
+          <tr class="salarioclass" id="primeiro-salario">
+            <td class="info-salario">500</td>
+            <td class="info-mes">2</td>
+            <td class="info-total">0</td>
+          </tr> 
+        </tbody>
+        ---------------------------------------------------
+<form id="form-adiciona">
+   <div class="grupo">
+                <label for="nome">Salario:</label>
+                <input id="nome" name="salario" type="text" placeholder="Digite seu Salario" class="campo">
+   </div>
+   <div class="grupo">
+                <label for="nome">Mes:</label>
+                <input id="mes" name="mes" type="text" placeholder="Digite o Mes" class="campo">
+   </div>
+                <button id="adicionar-pessoa" class="botao bto-principal">Adicionar</button>
+           </form>
+        */
+       });
+
+
+
+</script>
+
+</body>
+</html>

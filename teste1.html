@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8">
+		<title>Teste 1</title>
+		<link rel="icon" href="favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" type="text/css" href="css/reset.css">
+		<link rel="stylesheet" type="text/css" href="css/index.css">
+		<title>teste1</title>
+	</head>
+	<body>
+
+		<header>
+			<div class="container">
+				<h1 class="titulo">Aparecida Nutrição</h1>
+			</div>
+		</header>
+		<main>
+			<section class="container">
+				<h2>Meus pacientes</h2>
+				<table>
+					<thead>
+						<tr>
+							<th>Salario</th>
+							<th>Mes</th>
+							<th>Total</th>
+						</tr>
+					</thead>
+					<tbody id="tabela-salario">
+        <tr class="salarioclass" id="primeiro-salario">
+            <td class="info-salario">500</td>
+            <td class="info-mes">2</td>
+            <td class="info-total">0</td>
+        </tr>
+
+    </tbody>
+</table>
+</section>
+</main>
+  
+<section class="container">
+                <h2 id="titulo-form">Adicionar novo paciente</h2>
+      <form id="form-adiciona">
+   <div class="grupo">
+                    <label for="nome">Salario:</label>
+                    <input id="nome" name="salario" type="text" placeholder="Digite seu Salario" class="campo">
+   </div>
+ 
+   <div class="grupo">
+                    <label for="nome">Mes:</label>
+                    <input id="mes" name="mes" type="text" placeholder="Digite o Mes" class="campo">
+   </div>
+
+               <button id="adicionar-pessoa" class="botao bto-principal">Adicionar</button>
+           </form> 
+		
+<script>
+	/*
+<tbody id="tabela-pacientes">
+                <form id="formulario">
+		              <tr class="paciente" id="primeiro-paciente">
+			                    <td class="info-salario">100</td>
+			                    <td class="info-mes">2</td>
+			                    <td class="info-total">0</td>
+		              </tr>
+		  <button class="botao" id="botaoform">Clicar</button>
+	            </form>
+	</tbody> */
+
+	var formulario = document.querySelector("#primeiro-salario");
+
+	var salarioF = formulario.querySelector(".info-salario");
+    var salario = salarioF.textContent;
+
+	var mesF = formulario.querySelector(".info-mes");
+    var mes = mesF.textContent;
+
+	var totalF = formulario.querySelector(".info-total");
+
+	var total = (salario * mes);
+
+	totalF.textContent = total;
+
+
+	var botao = document.querySelector("#adicionar-pessoa");// Buscar botão do HTML pro JavaScript.
+	botao.addEventListener("click",function(event){
+	event.preventDefault();
+
+      var form = document.querySelector("#form-adiciona"); // ID do Form.
+
+	  var salario = form.salario.value;
+	  var mes =  form.mes.value;
+
+	  var contaTr = document.createElement("tr");
+
+	  var salarioTd = document.createElement("td");
+	  var mesTd = document.createElement("td");
+     
+	  salarioTd.textContent = salario;
+	  mesTd.textContent = mes;
+
+      contaTr.appendChild(salarioTd);
+	  contaTr.appendChild(mesTd);
+
+	  bodyTr = document.querySelector("#tabela-salario"); 
+
+	  bodyTr.appendChild(contaTr); //TR dentro do TBODY
+
+	});
+
+</script>
+
+</body>
+</html>
